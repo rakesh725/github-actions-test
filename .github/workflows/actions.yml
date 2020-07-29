@@ -12,7 +12,7 @@ jobs:
           repository: rakesh725/github-actions-test
       - name: Run Commands
         run: |
-          pwd
+          pwd 
           ls -l
       - name: Simple JS Action
         id: greet
