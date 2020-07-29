@@ -6,6 +6,14 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps: 
+      - name: Checkout
+        uses: actions/checkout@v2
+        with: 
+          repository: rakesh725/github-actions-test
+      - name: Run Commands
+        run: |
+          pwd
+          ls -l
       - name: Simple JS Action
         id: greet
         uses: actions/hello-world-javascript-action@v1
