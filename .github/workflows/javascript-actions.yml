@@ -10,6 +10,6 @@ jobs:
       - uses: ./github/actions/hello
         id: hello
         with:
-        who-to-great: 'Obama'
+          who-to-great: 'Obama'
       - run: |
         echo "Time: ${{ steps.hello.outputs.time }}"
