@@ -3,12 +3,16 @@ on: push
 
 jobs:
   node-version:
+    strategy:
+      matrix:
+        node_version: [6,8,10]
+      fail-fast: true
     runs-on: ubuntu-latest
     steps:
       - name: log node version
         run: node -v
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2-beta
         with: 
           node-version: 6
       - name: log node version
