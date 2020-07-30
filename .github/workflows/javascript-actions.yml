@@ -8,9 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./github/actions/hello
-          id: hello 
-          with: 
-            who-t-great: "Obama"
+        id: hello
+        with:
+        who-t-great: "Obama"
       - run: |
         echo "Time: ${{ steps.hello.outputs.time }}"
-          
