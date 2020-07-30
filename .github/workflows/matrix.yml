@@ -6,6 +6,7 @@ jobs:
     strategy:
       matrix:
         node_version: [6,8,10]
+      max-parallel: 0
       fail-fast: true
     runs-on: ubuntu-latest
     steps:
