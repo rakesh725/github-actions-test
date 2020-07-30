@@ -11,7 +11,7 @@ jobs:
           - os: ubuntu-latest
             node_version: 6
           - os: macos-latest
-            node_versoin: 8
+            node_version: 8
         include: 
           - os: ubuntu-latest
             node_version: 12
