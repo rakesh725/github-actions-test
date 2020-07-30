@@ -5,16 +5,28 @@ jobs:
   node-version:
     strategy:
       matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
         node_version: [6,8,10]
-      max-parallel: 0
-      fail-fast: true
-    runs-on: ubuntu-latest
+        exclude: 
+          - os: ubuntu-latest
+            node_version: 6
+          - os: macos-latest
+            node_versoin: 8
+        include: 
+          - os: ubuntu-latest
+            node_version: 12
+            ubuntu_12: "true"
+    runs-on: ${{ matrix.os }}
+    env:
+      IS_UBUNTU_12: ${{ matrix.ubuntu_12 }}
     steps:
       - name: log node version
         run: node -v
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
         with: 
-          node-version: 6
+          node-version: ${{ matrix.node_version }}
       - name: log node version
-        run: node -v 
+        run: | 
+          node -v 
+          echo $IS_UBUNTU_12
